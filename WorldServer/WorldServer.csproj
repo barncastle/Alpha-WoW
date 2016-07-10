@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B736A574-F0AD-43D2-BF24-A54EDC0BCD6B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorldServer</RootNamespace>
+    <AssemblyName>WorldServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=7.0.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.7.0.2-DMR\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Commands\CommandParser.cs" />
+    <Compile Include="Game\Commands\ConsoleManager.cs" />
+    <Compile Include="Game\Commands\GameMasterCommands.cs" />
+    <Compile Include="Game\Globals.cs" />
+    <Compile Include="Game\Managers\ChatManager.cs" />
+    <Compile Include="Game\Objects\Account.cs" />
+    <Compile Include="Game\Objects\Container.cs" />
+    <Compile Include="Game\Objects\GameObject.cs" />
+    <Compile Include="Game\Objects\Group.cs" />
+    <Compile Include="Game\Managers\InventoryManager.cs" />
+    <Compile Include="Game\Objects\Player.cs" />
+    <Compile Include="Game\Objects\Creature.cs" />
+    <Compile Include="Game\Objects\Item.cs" />
+    <Compile Include="Game\Objects\PlayerExtensions\FriendExtension.cs" />
+    <Compile Include="Game\Objects\PlayerExtensions\LootExtension.cs" />
+    <Compile Include="Game\Objects\PlayerExtensions\QuestExtension.cs" />
+    <Compile Include="Game\Objects\PlayerExtensions\SkillExtension.cs" />
+    <Compile Include="Game\Objects\PlayerExtensions\TradeExtension.cs" />
+    <Compile Include="Game\Objects\SpellEffect.cs" />
+    <Compile Include="Game\Objects\UnitExtensions\FactionExtension.cs" />
+    <Compile Include="Game\Objects\UnitExtensions\SpellExtension.cs" />
+    <Compile Include="Game\Objects\UnitExtensions\TalentExtension.cs" />
+    <Compile Include="Game\Objects\Quest.cs" />
+    <Compile Include="Game\Objects\Unit.cs" />
+    <Compile Include="Game\Structs\AreaTrigger.cs" />
+    <Compile Include="Game\Structs\CreatureStructs.cs" />
+    <Compile Include="Game\Structs\CreatureTemplate.cs" />
+    <Compile Include="Game\Structs\GameObjectStructs.cs" />
+    <Compile Include="Game\Structs\GameObjectTemplate.cs" />
+    <Compile Include="Game\Structs\ItemStructs.cs" />
+    <Compile Include="Game\Structs\ItemTemplate.cs" />
+    <Compile Include="Game\Structs\QuestTemplate.cs" />
+    <Compile Include="Game\Managers\GridManager.cs" />
+    <Compile Include="Game\Managers\StatManager.cs" />
+    <Compile Include="Game\Objects\WorldObject.cs" />
+    <Compile Include="Game\Structs\PlayerStructs.cs" />
+    <Compile Include="Game\Structs\SpellStructs.cs" />
+    <Compile Include="Game\Structs\UnitStructs.cs" />
+    <Compile Include="Network\RealmManager.cs" />
+    <Compile Include="Network\RealmSocket.cs" />
+    <Compile Include="Network\WorldManager.cs" />
+    <Compile Include="Packets\HandlerDefinitions.cs" />
+    <Compile Include="Packets\Handlers\AuthHandler.cs" />
+    <Compile Include="Packets\Handlers\CharHandler.cs" />
+    <Compile Include="Packets\Handlers\ChatHandler.cs" />
+    <Compile Include="Packets\Handlers\CreatureHandler.cs" />
+    <Compile Include="Packets\Handlers\FriendHandler.cs" />
+    <Compile Include="Packets\Handlers\GameObjectHandler.cs" />
+    <Compile Include="Packets\Handlers\GroupHandler.cs" />
+    <Compile Include="Packets\Handlers\ItemHandler.cs" />
+    <Compile Include="Packets\Handlers\LootHandler.cs" />
+    <Compile Include="Packets\Handlers\MiscHandler.cs" />
+    <Compile Include="Packets\Handlers\MovementHandler.cs" />
+    <Compile Include="Packets\Handlers\NetHandler.cs" />
+    <Compile Include="Packets\Handlers\NPCHandler.cs" />
+    <Compile Include="Packets\Handlers\QuestHandler.cs" />
+    <Compile Include="Packets\Handlers\SpellHandler.cs" />
+    <Compile Include="Packets\Handlers\TradeHandler.cs" />
+    <Compile Include="Packets\Handlers\WorldHandler.cs" />
+    <Compile Include="Packets\PacketManager.cs" />
+    <Compile Include="Storage\DatabaseExtension.cs" />
+    <Compile Include="Storage\DbSet.cs" />
+    <Compile Include="Storage\GroupedDbSet.cs" />
+    <Compile Include="Storage\Database.cs" />
+    <Compile Include="WorldServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{63268176-7ff9-4b3e-aaad-cc7c329f924a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Network\WorldSocket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

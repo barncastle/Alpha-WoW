@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63268176-7FF9-4B3E-AAAD-CC7C329F924A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=7.0.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.7.0.2-DMR\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\AuthCodes.cs" />
+    <Compile Include="Constants\Enums.cs" />
+    <Compile Include="Constants\Structs.cs" />
+    <Compile Include="Constants\UpdateFields.cs" />
+    <Compile Include="Constants\Opcodes.cs" />
+    <Compile Include="Cryptography\Srp6.cs" />
+    <Compile Include="Database\BaseContext.cs" />
+    <Compile Include="Database\DBC\CustomTypes\Unused.cs" />
+    <Compile Include="Database\DBC\DBC.cs" />
+    <Compile Include="Database\DBC\Reader\BinaryReaderExtensions.cs" />
+    <Compile Include="Database\DBC\Reader\DBHeader.cs" />
+    <Compile Include="Database\DBC\Reader\DBReader.cs" />
+    <Compile Include="Database\DBC\Reader\DBReaderExtensions.cs" />
+    <Compile Include="Database\DBC\Structures\AreaTable.cs" />
+    <Compile Include="Database\DBC\Structures\BankBagSlotPrices.cs" />
+    <Compile Include="Database\DBC\Structures\CharBaseInfo.cs" />
+    <Compile Include="Database\DBC\Structures\CharStartOutfit.cs" />
+    <Compile Include="Database\DBC\Structures\ChrProficiency.cs" />
+    <Compile Include="Database\DBC\Structures\ChrRaces.cs" />
+    <Compile Include="Database\DBC\Structures\EmotesText.cs" />
+    <Compile Include="Database\DBC\Structures\FactionTemplate.cs" />
+    <Compile Include="Database\DBC\Structures\Lock.cs" />
+    <Compile Include="Database\DBC\Structures\LockType.cs" />
+    <Compile Include="Database\DBC\Structures\SkillLine.cs" />
+    <Compile Include="Database\DBC\Structures\SkillLineAbility.cs" />
+    <Compile Include="Database\DBC\Structures\Spell.cs" />
+    <Compile Include="Database\DBC\Structures\SpellCastTimes.cs" />
+    <Compile Include="Database\DBC\Structures\SpellDuration.cs" />
+    <Compile Include="Database\DBC\Structures\SpellRadius.cs" />
+    <Compile Include="Database\DBC\Structures\SpellRange.cs" />
+    <Compile Include="Database\DBC\Structures\WorldSafeLocs.cs" />
+    <Compile Include="Database\TableAttributes.cs" />
+    <Compile Include="Helpers\Flag.cs" />
+    <Compile Include="Helpers\Quaternion.cs" />
+    <Compile Include="Helpers\Vector.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\LogTypes.cs" />
+    <Compile Include="Network\ByteConverter.cs" />
+    <Compile Include="Network\Packets\PacketReader.cs" />
+    <Compile Include="Network\Packets\PacketWriter.cs" />
+    <Compile Include="Network\Packets\UpdateClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton\Singleton.cs" />
+    <Compile Include="Singleton\SingletonBase.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

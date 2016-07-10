@@ -62,5 +62,5 @@ Installation:
   -	MPQEdit works for this 
 -	Unzip and run the SQL file in the Database.zip archive
 -	Inside the App.Config file is a MySQL connection string, change this to point to your database
--	Creature a shortcut to WoWClient.exe and add –uptodate to the end
+-	Create a shortcut to WoWClient.exe and add –uptodate to the end
   -	i.e. "E:\World of Warcraft Alpha 0.5.3\WoWClient.exe" –uptodate
